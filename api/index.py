@@ -39,5 +39,5 @@ def authenticate():
             return f"Authentication failed!"
     else:
         return "Invalid Redirect", 400
-
-app.run(host='0.0.0.0', port=8080)
+if __name__ == "__main__":
+    app.run()
