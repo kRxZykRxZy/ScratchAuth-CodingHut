@@ -19,7 +19,7 @@ def home():
 @app.get("/auth")
 def auth():
     if "username" not in session:
-        return redirect(f"https://auth.itinerary.eu.org/auth/?redirect={ base64('https://scratchauthdemo.vercel.app/authenticate') }&name=NotFenixio%27s%20ScratchAuth%20Example")
+        return redirect(f"https://auth.itinerary.eu.org/auth/?redirect={ base64('https://scratch-auth-demo.vercel.app/authenticate') }&name=NotFenixio%27s%20ScratchAuth%20Example")
     else:
         return render_template("auth.html", username=session["username"])
 
@@ -31,7 +31,7 @@ def authenticate():
         return "Bad Request", 400
 
     response = get(f"https://auth.itinerary.eu.org/api/auth/verifyToken?privateCode={privateCode}").json()
-    if response["redirect"] == "https://scratchauthdemo.vercel.app/authenticate":
+    if response["redirect"] == "https://scratch-auth-demo.vercel.app/authenticate":
         if response["valid"]:
             session["username"] = response["username"]
             return redirect("/auth")
