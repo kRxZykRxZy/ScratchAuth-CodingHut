@@ -30,7 +30,7 @@ def authenticate():
     if code == None:
         return "Bad Request", 400
 
-    response = get(f"https://auth.itinerary.eu.org/api/auth/verifyToken?privateCode={privateCode}").json()
+    response = get(f"https://auth.itinerary.eu.org/api/auth/verifyToken?privateCode={code}").json()
     if response["redirect"] == "https://scratch-auth-demo.vercel.app/authenticate":
         if response["valid"]:
             session["username"] = response["username"]
