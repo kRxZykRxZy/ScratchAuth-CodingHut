@@ -9,6 +9,10 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = getenv("secretkey")
 
+"""
+Thanks to Chiroyce (https://replit.com/@Chiroyce/auth) for part of the code! Truly the GOAT.
+"""
+
 def base64(string):
     return b64encode(string.encode("utf-8")).decode()
 
