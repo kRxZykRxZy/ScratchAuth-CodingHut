@@ -6,7 +6,10 @@
     <title>NotFenixio's Scratch Auth Example</title>
   </head>
   <body class="p-6">
-    <h1 class="text-center text-3xl text-black dark:text-white font-bold mb-3">NotFenixio's Scratch Auth Example</h1>
-      <p class="mb-2">You're authenticated as {{ username }}</p>
+    <h1 id="user" class="text-center text-3xl text-black dark:text-white font-bold mb-3">NotFenixio's Scratch Auth Example</h1>
+      <p class="mb-2">{{ username }}</p>
   </body>
+  <script>const user = document.getElementById('user').value;
+  const encoded = btoa(user);
+  window.location.href = `https://scratch-coding-hut.github.io/account?username=${encoded}`;</script>
 </html>
