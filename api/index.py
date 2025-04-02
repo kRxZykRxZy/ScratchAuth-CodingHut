@@ -26,7 +26,7 @@ def home():
 @app.get("/auth")
 def auth():
     if "username" not in session:
-        return redirect(f"https://auth.itinerary.eu.org/auth/?redirect={base64('https://scratch-auth-demo.vercel.app/authenticate')}&name=NotFenixio%27s%20ScratchAuth%20Example")
+        return redirect(f"https://auth.itinerary.eu.org/auth/?redirect={base64('https://scratchauth-codinghut.onrender.com/authenticate')}&name=NotFenixio%27s%20ScratchAuth%20Example")
     else:
         return redirect(f"https://scratch-coding-hut.github.io/account?username={btoa(session['username'])}")
 
@@ -39,7 +39,7 @@ def authenticate():
 
     response = get(f"https://auth.itinerary.eu.org/api/auth/verifyToken?privateCode={code}").json()
     
-    if response.get("redirect") == "https://scratch-auth-demo.vercel.app/authenticate":
+    if response.get("redirect") == "https://scratchauth-codinghut.onrender.com/authenticate":
         if response.get("valid"):
             session["username"] = response["username"]
             return redirect("/auth")
