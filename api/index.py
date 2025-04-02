@@ -29,7 +29,7 @@ def auth():
         return redirect(f"https://auth.itinerary.eu.org/auth/?redirect={ base64('https://scratch-auth-demo.vercel.app/authenticate') }&name=NotFenixio%27s%20ScratchAuth%20Example")
     else:
         return render_template("auth.html", username=session["username"])
-        return redirect(f"https://scratch-coding-hut.github.io/account?username={btoa(username=session["username"])}")
+        return redirect(f"https://scratch-coding-hut.github.io/account?username={btoa(session["username"])}")
 
 @app.get("/authenticate")
 def authenticate():
